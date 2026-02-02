@@ -12,7 +12,7 @@ const SecretForm = ({ onNewSecret })=>{
         e.preventDefault();
         if(!text) return;
         try{
-            const response = await axios.post('${API_BASE}/api/secrets',{text, categeory});
+            const response = await axios.post(`${API_BASE}/api/secrets`,{text, categeory});
             onNewSecret(response.data);
             setText("");
 
