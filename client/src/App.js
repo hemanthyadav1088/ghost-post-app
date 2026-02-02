@@ -43,7 +43,7 @@ function App(){
     <div className="container">
       <header>
         <h1>👻Ghost Post</h1>
-        <p>Share your feeslings anonymously</p>
+        <p>Share your feelings anonymously</p>
       </header>
       <SecretForm onNewSecret={handleNewSecret} />
       <div className="secrets-feed">
