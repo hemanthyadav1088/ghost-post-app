@@ -3,12 +3,14 @@ import {formatDistanceToNow} from "date-fns";
 import SecretForm from "./components/secretForm.js";
 import axios from "axios";
 
+const API_BASE = process.env.REACT_APP_API_URL || 'htpp://localhost:5000';
+
 function App(){
   const [secrets, setSecrets]= useState([]);
   useEffect(()=>{
     const fetchSecrets = async ()=>{
       try{
-        const response =await axios.get('/api/secrets');
+        const response =await axios.get(`${API_BASE}/api/secrets`);
         setSecrets(response.data);
 
       }
@@ -25,7 +27,7 @@ function App(){
   }
   const handleLike = async (id)=>{
     try{
-      const response = await axios.put(`/api/secrets/${id}/like`);
+      const response = await axios.put(`${API_BASE}/api/secrets/${id}/like`);
       const updatedSecret = response.data;
       setSecrets((prevSecrets) =>
         prevSecrets.map((secret)=>
